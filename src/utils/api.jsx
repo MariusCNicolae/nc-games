@@ -24,3 +24,11 @@ export const patchVotes = async (review_id, increment) => {
 
   return response;
 };
+
+export const postComment = async (review_id, newComment) => {
+  const response = await gamesApi.post(
+    `api/reviews/${review_id}/comments`,
+    newComment
+  );
+  console.log(response.comments);
+};
