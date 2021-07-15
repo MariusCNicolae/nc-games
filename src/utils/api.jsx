@@ -13,14 +13,14 @@ export const getCategories = () => {
 export const getReviewsByCategory = async (category) => {
   let path = "api/reviews";
   if (category) path += `?category=${category}`;
-  console.log(path);
   const { data } = await gamesApi.get(path);
   return data.reviews;
 };
 
-// export const patchVotes = async (category, increment) => {
-//   const response = await gamesApi.patch(`api/reviews/?category=${category}`, {
-//     votes: increment,
-//   });
-//   console.log(response);
-// };
+export const patchVotes = async (review_id, increment) => {
+  const response = await gamesApi.patch(`api/reviews/${review_id}`, {
+    inc_votes: increment,
+  });
+
+  return response;
+};

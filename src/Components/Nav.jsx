@@ -8,14 +8,13 @@ const Nav = () => {
 
   useEffect(() => {
     getCategories().then((categoriesData) => {
-      // console.log(categoriesData);
       setCategories(categoriesData);
     });
   }, []);
 
   return (
     <nav className="App-games">
-      <Link className="App-categories" to="/">
+      <Link to="api/categories">
         <h3>Games Categories</h3>
       </Link>
       {categories.map((category) => {
